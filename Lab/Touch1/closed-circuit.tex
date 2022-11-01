@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[american]{circuitikz}
+\begin{document}
+    \begin{circuitikz}
+    	\begin{scope}[line width=1.2pt]
+	    	\ctikzset{bipoles/thickness=1.5}
+	        \draw[magenta] (0,0) to[V, l=$\,V_s$, *-*, invert] (0,4);
+			\draw[blue] (0,4) to[R, l=$R_1$, i>=$I_y$, *-*] (6,4);
+			\draw[cyan] (6, 4) to[short, *-*] (6,0);
+			\ctikzset{bipoles/thickness=1}
+		\end{scope}
+			\begin{scope}
+			\draw (0,0) to[short, *-*] (6,0);
+			\draw (3,0) node[ground]{} node[circ]{};
+		\end{scope}
+		\begin{scope}[font=\small]
+			\draw[magenta] (0.8, 0.5) to[open, v<=$V_x$] (0.8,3.5);
+			\draw[blue] (1, 3.3) to[open, v>=$V_y$] (5, 3.3);
+			\draw[cyan] (5.4, 0.5) to[open, v<=$V_z$] (5.4,3.5);
+		\end{scope}
+		\begin{scope}
+			\draw[olive] (0,4) node[label={left:$\mathbf{u_1}$}] {};
+			\draw[olive] (6,4) node[label={right:$\mathbf{u_2}$}] {};
+			\draw[olive] (6,0) node[label={right:$\mathbf{u_0}$}] {};
+			\draw[olive] (0,0) node[label={left:$\mathbf{u_0}$}] {};
+			\draw[olive] (3,0) node[label={above:$\mathbf{u_0}$}] {};
+		\end{scope}
+    \end{circuitikz}
+\end{document}
